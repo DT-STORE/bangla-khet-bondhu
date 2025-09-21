@@ -2,39 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Agricultural Farmer App Design System - Bangladeshi farmers focused
+All colors MUST be HSL. Designed for accessibility and low-literacy users.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Agricultural green theme with earth tones */
+    --background: 120 20% 97%;
+    --foreground: 120 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 120 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 120 10% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Rich agricultural green */
+    --primary: 120 45% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 120 45% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Warm earth tone */
+    --secondary: 35 25% 88%;
+    --secondary-foreground: 120 45% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 120 15% 92%;
+    --muted-foreground: 120 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: Warm crop gold */
+    --accent: 45 70% 75%;
+    --accent-foreground: 120 45% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 120 15% 85%;
+    --input: 120 15% 90%;
+    --ring: 120 45% 35%;
+
+    /* Success green for healthy crops */
+    --success: 120 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning orange for crop alerts */
+    --warning: 35 85% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Custom gradients for agricultural feel */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-earth: linear-gradient(180deg, hsl(35 40% 90%), hsl(35 30% 85%));
+    --gradient-sky: linear-gradient(180deg, hsl(200 60% 90%), hsl(200 40% 80%));
+    
+    /* Shadows for depth */
+    --shadow-soft: 0 2px 8px hsl(120 20% 20% / 0.08);
+    --shadow-card: 0 4px 16px hsl(120 20% 20% / 0.12);
+    --shadow-button: 0 2px 4px hsl(120 45% 25% / 0.2);
+
+    /* Transitions for smooth interactions */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 
@@ -56,33 +82,49 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode with agricultural theme - for evening farm use */
+    --background: 120 20% 8%;
+    --foreground: 120 15% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 120 20% 12%;
+    --card-foreground: 120 15% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 120 20% 12%;
+    --popover-foreground: 120 15% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 120 50% 65%;
+    --primary-foreground: 120 20% 8%;
+    --primary-glow: 120 55% 70%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 120 15% 18%;
+    --secondary-foreground: 120 15% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 120 15% 15%;
+    --muted-foreground: 120 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 65% 65%;
+    --accent-foreground: 120 20% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 120 15% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 120 15% 20%;
+    --input: 120 15% 15%;
+    --ring: 120 50% 65%;
+
+    --success: 120 55% 55%;
+    --success-foreground: 120 20% 8%;
+
+    --warning: 35 80% 60%;
+    --warning-foreground: 120 20% 8%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-earth: linear-gradient(180deg, hsl(120 15% 18%), hsl(120 15% 12%));
+    --gradient-sky: linear-gradient(180deg, hsl(200 30% 20%), hsl(200 25% 15%));
+    
+    --shadow-soft: 0 2px 8px hsl(120 20% 5% / 0.3);
+    --shadow-card: 0 4px 16px hsl(120 20% 5% / 0.4);
+    --shadow-button: 0 2px 4px hsl(120 50% 25% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +143,74 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    touch-action: manipulation; /* Improve touch responsiveness */
+  }
+
+  /* Mobile-first responsive font sizes */
+  html {
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 18px; /* Larger base font for mobile accessibility */
+    }
+  }
+
+  /* Accessibility improvements */
+  button, [role="button"] {
+    min-height: 44px; /* Minimum touch target size */
+    min-width: 44px;
+  }
+
+  /* Custom scrollbar for mobile */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Farmer-friendly component styles */
+  .farmer-card {
+    @apply bg-card border border-border rounded-2xl p-6 shadow-sm;
+    transition: var(--transition-smooth);
+  }
+
+  .farmer-card:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+
+  .farmer-button-large {
+    @apply h-16 px-8 text-lg font-semibold rounded-2xl;
+    min-height: 64px; /* Extra large for farmers */
+    transition: var(--transition-smooth);
+  }
+
+  .farmer-icon-button {
+    @apply w-20 h-20 rounded-2xl flex items-center justify-center;
+    transition: var(--transition-smooth);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-earth {
+    background: var(--gradient-earth);
+  }
+
+  .gradient-sky {
+    background: var(--gradient-sky);
   }
 }

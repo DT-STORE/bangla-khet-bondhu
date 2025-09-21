@@ -1,14 +1,47 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React, { useState } from 'react';
+import Home from './Home';
+import CropSelection from './CropSelection';
+import { Crop } from '@/types';
 
 const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  const [currentPage, setCurrentPage] = useState('home');
+  const [selectedCrop, setSelectedCrop] = useState<Crop | null>(null);
+
+  const handleSelectCrop = (crop: Crop) => {
+    setSelectedCrop(crop);
+  };
+
+  const handleNavigate = (page: string) => {
+    setCurrentPage(page);
+  };
+
+  const handleBack = () => {
+    setCurrentPage('home');
+  };
+
+  const renderCurrentPage = () => {
+    switch (currentPage) {
+      case 'crop-selection':
+        return (
+          <CropSelection
+            selectedCrop={selectedCrop}
+            onSelectCrop={handleSelectCrop}
+            onBack={handleBack}
+          />
+        );
+      case 'home':
+      default:
+        return (
+          <Home
+            selectedCrop={selectedCrop}
+            onSelectCrop={() => setCurrentPage('crop-selection')}
+            onNavigate={handleNavigate}
+          />
+        );
+    }
+  };
+
+  return renderCurrentPage();
 };
 
 export default Index;

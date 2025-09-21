@@ -168,50 +168,62 @@ const Home: React.FC<HomeProps> = ({ selectedCrop, onSelectCrop, onNavigate }) =
           </div>
         )}
 
-        {/* Quick Actions */}
+        {/* Main Actions */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold">
-            {t('quick-actions', 'Quick Actions', 'দ্রুত কাজ')}
+            {t('main-features', 'Main Features', 'প্রধান বৈশিষ্ট্য')}
           </h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <Button
               variant="farmer"
               size="farmer-xl"
-              onClick={() => onNavigate('camera')}
-              className="flex-col gap-3 h-24"
+              onClick={() => onNavigate('dragon-fruit-guide')}
+              className="flex items-center justify-start gap-4 h-16 px-6"
             >
-              <Camera className="w-8 h-8" />
-              <span>{t('take-photo', 'Take Photo', 'ছবি তুলুন')}</span>
+              <div className="text-4xl">🐉</div>
+              <div className="text-left">
+                <div className="font-semibold">{t('dragon-fruit-guide', 'Dragon Fruit Guide', 'ড্রাগন ফল গাইড')}</div>
+                <div className="text-sm opacity-90">{t('complete-guide', 'Complete cultivation guide', 'সম্পূর্ণ চাষাবাদ গাইড')}</div>
+              </div>
             </Button>
 
             <Button
               variant="farmer-secondary"
               size="farmer-xl"
-              onClick={() => onNavigate('guidance')}
-              className="flex-col gap-3 h-24"
+              onClick={() => onNavigate('crop-observation')}
+              className="flex items-center justify-start gap-4 h-16 px-6"
             >
-              <Leaf className="w-8 h-8" />
-              <span>{t('crop-guidance', 'Crop Guide', 'ফসলের গাইড')}</span>
+              <Camera className="w-8 h-8" />
+              <div className="text-left">
+                <div className="font-semibold">{t('crop-observation', 'Crop Observation', 'ফসল পর্যবেক্ষণ')}</div>
+                <div className="text-sm opacity-90">{t('record-progress', 'Record photos & notes', 'ছবি ও নোট রেকর্ড করুন')}</div>
+              </div>
             </Button>
 
             <Button
               variant="farmer-outline"
               size="farmer-xl"
-              onClick={() => onNavigate('knowledge')}
-              className="flex-col gap-3 h-24"
+              onClick={() => onNavigate('pests-diseases')}
+              className="flex items-center justify-start gap-4 h-16 px-6"
             >
-              <BookOpen className="w-8 h-8" />
-              <span>{t('knowledge-base', 'Knowledge', 'জ্ঞানভান্ডার')}</span>
+              <div className="text-4xl">🐛</div>
+              <div className="text-left">
+                <div className="font-semibold">{t('pests-diseases', 'Pests & Diseases', 'পোকামাকড় ও রোগ')}</div>
+                <div className="text-sm opacity-90">{t('identify-treat', 'Identify & treat problems', 'সমস্যা চিহ্নিত ও চিকিৎসা')}</div>
+              </div>
             </Button>
 
             <Button
               variant="farmer-warning"
               size="farmer-xl"
-              onClick={() => onNavigate('support')}
-              className="flex-col gap-3 h-24"
+              onClick={() => onNavigate('observation-history')}
+              className="flex items-center justify-start gap-4 h-16 px-6"
             >
-              <Phone className="w-8 h-8" />
-              <span>{t('expert-help', 'Expert Help', 'বিশেষজ্ঞ সাহায্য')}</span>
+              <BookOpen className="w-8 h-8" />
+              <div className="text-left">
+                <div className="font-semibold">{t('observation-history', 'My Observations', 'আমার পর্যবেক্ষণ')}</div>
+                <div className="text-sm opacity-90">{t('view-history', 'View saved observations', 'সংরক্ষিত পর্যবেক্ষণ দেখুন')}</div>
+              </div>
             </Button>
           </div>
         </div>
